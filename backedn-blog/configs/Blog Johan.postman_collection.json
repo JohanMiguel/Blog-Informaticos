@@ -75,11 +75,18 @@
 				},
 				{
 					"name": "Buscar-Curso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
 						"url": {
-							"raw": "http://127.0.0.1:3001/blog/v1/course/buscarCourse/taller",
+							"raw": "http://127.0.0.1:3001/blog/v1/course/coursesfiltro/taller",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -92,7 +99,7 @@
 								"blog",
 								"v1",
 								"course",
-								"buscarCourse",
+								"coursesfiltro",
 								"taller"
 							]
 						}
@@ -152,6 +159,38 @@
 					"response": []
 				},
 				{
+					"name": "Listar-Publicaciones",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/blog/v1/post/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"blog",
+								"v1",
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Buscar publicacion",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -179,38 +218,6 @@
 								"post",
 								"buscar",
 								"681e34a1fbf164d245e32f9e"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar-Publicaciones",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "http://127.0.0.1:3001/blog/v1/post/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3001",
-							"path": [
-								"blog",
-								"v1",
-								"post",
-								""
 							]
 						}
 					},
@@ -319,7 +326,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "/*\r\n\r\n\r\n{\r\n    \"nameUser\": \"Miguel Reyes\",\r\n    \"content\": \"Muy interesante su proyecto.\",\r\n    \"post_id\": \"681e34a1fbf164d245e32f9e\"\r\n}\r\n{\r\n    \"nameUser\": \"Jimena Martines\",\r\n    \"content\": \"Muy cool ese tema exitos.\",\r\n    \"post_id\": \"681e34a1fbf164d245e32f9e\"\r\n}\r\n*/\r\n\r\n{\r\n    \"nameUser\": \"Maybe Tojin\",\r\n    \"content\": \"WOw increibles temas.\",\r\n    \"post_id\": \"681e34a1fbf164d245e32f9e\"\r\n}\r\n\r\n\r\n\r\n\r\n",
+							"raw": "/*\r\n\r\n\r\n{\r\n    \"nameUser\": \"Miguel Reyes\",\r\n    \"content\": \"Muy interesante su proyecto.\",\r\n    \"post_id\": \"681e34a1fbf164d245e32f9e\"\r\n}\r\n{\r\n    \"nameUser\": \"Jimena Martines\",\r\n    \"content\": \"Muy cool ese tema exitos.\",\r\n    \"post_id\": \"681e34a1fbf164d245e32f9e\"\r\n}\r\n*/\r\n\r\n{\r\n    \"nameUser\": \"Gatzu Gonzales\",\r\n    \"content\": \" increibles temas.\",\r\n    \"post_id\": \"681e34a1fbf164d245e32f9e\"\r\n}\r\n\r\n\r\n\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"

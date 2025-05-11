@@ -10,12 +10,16 @@
   "course": {
     "$oid": "681e33bbfbf164d245e32f8d"
   },
-  "comments": [],
+  "comments": [
+    {
+      "$oid": "682042f65ed76b0a003a9c63"
+    }
+  ],
   "createdAt": {
     "$date": "2025-05-09T16:57:59.343Z"
   },
   "updatedAt": {
-    "$date": "2025-05-09T16:57:59.343Z"
+    "$date": "2025-05-11T06:25:58.298Z"
   }
 },
 {
@@ -30,12 +34,37 @@
   "course": {
     "$oid": "681e33bbfbf164d245e32f8a"
   },
-  "comments": [],
+  "comments": [
+    {
+      "$oid": "681e3665fbf164d245e32fbc"
+    },
+    {
+      "$oid": "681e36a9fbf164d245e32fc4"
+    },
+    {
+      "$oid": "681e36dafbf164d245e32fc8"
+    },
+    {
+      "$oid": "6820268e3216af1ec9d6014b"
+    },
+    {
+      "$oid": "6820382a34caa0f48ecfbcc2"
+    },
+    {
+      "$oid": "6820383834caa0f48ecfbcc6"
+    },
+    {
+      "$oid": "6820673bfdf5ab4090f83bb5"
+    },
+    {
+      "$oid": "68206745fdf5ab4090f83bb9"
+    }
+  ],
   "createdAt": {
     "$date": "2025-05-09T17:00:17.893Z"
   },
   "updatedAt": {
-    "$date": "2025-05-09T17:00:17.893Z"
+    "$date": "2025-05-11T09:00:53.198Z"
   }
 },
 {
@@ -50,12 +79,16 @@
   "course": {
     "$oid": "681e33bbfbf164d245e32f90"
   },
-  "comments": [],
+  "comments": [
+    {
+      "$oid": "682038f05ed76b0a003a9c3c"
+    }
+  ],
   "createdAt": {
     "$date": "2025-05-09T17:00:59.414Z"
   },
   "updatedAt": {
-    "$date": "2025-05-09T17:00:59.414Z"
+    "$date": "2025-05-11T05:43:12.864Z"
   }
 },
 {
@@ -90,12 +123,16 @@
   "course": {
     "$oid": "681e33bbfbf164d245e32f8a"
   },
-  "comments": [],
+  "comments": [
+    {
+      "$oid": "682068bb804e97b3c078d045"
+    }
+  ],
   "createdAt": {
     "$date": "2025-05-09T17:02:30.730Z"
   },
   "updatedAt": {
-    "$date": "2025-05-09T17:02:30.730Z"
+    "$date": "2025-05-11T09:07:07.191Z"
   }
 },
 {

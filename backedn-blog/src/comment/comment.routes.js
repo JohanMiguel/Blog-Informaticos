@@ -1,7 +1,5 @@
 import { Router } from "express";
-import { createComment, deleteComment } from "./comment.controller.js";
-import { validateJWT } from "../middlewares/validate-jwt.js";
-import { hasRoles } from "../middlewares/validate-roles.js";
+import { createComment } from "./comment.controller.js";
 
 const router = Router();
 
@@ -9,9 +7,8 @@ const router = Router();
  * @swagger
  * /comments/addComment:
  *   post:
- *     summary: Add a new comment
- *     security:
- *       - bearerAuth: []
+ *     summary: Add a comment to a post
+ *     tags: [Comments]
  *     requestBody:
  *       required: true
  *       content:
@@ -32,26 +29,5 @@ const router = Router();
  *         description: Server error
  */
 router.post("/addComment", createComment);
-/**
- * @swagger
- * /comments/deleteComment/{id}:
- *   delete:
- *     summary: Delete a comment
- *     security:
- *       - bearerAuth: []
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: Comment ID
- *     responses:
- *       200:
- *         description: Comment deleted
- *       500:
- *         description: Server error
- */
-router.delete("/deleteComment/:id", validateJWT, hasRoles("ADMIN_ROLE"), deleteComment);
 
 export default router;

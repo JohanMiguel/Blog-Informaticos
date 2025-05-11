@@ -1,16 +1,15 @@
-import { Router } from "express"
-import { login} from "./auth.controller.js"
-import { loginValidator } from "../middlewares/user-validators.js"
+import { Router } from "express";
+import { login } from "./auth.controller.js";
+import { loginValidator } from "../middlewares/user-validators.js";
 
-const router = Router()
-
-
+const router = Router();
 
 /**
  * @swagger
  * /auth/login:
  *   post:
- *     summary: Login a user
+ *     summary: User login
+ *     tags: [Auth]
  *     requestBody:
  *       required: true
  *       content:
@@ -18,18 +17,18 @@ const router = Router()
  *           schema:
  *             type: object
  *             properties:
- *               email:
+ *               username:
  *                 type: string
  *               password:
  *                 type: string
  *     responses:
  *       200:
- *         description: User logged in
+ *         description: Login successful
  *       400:
- *         description: Invalid input
+ *         description: Invalid credentials
  *       500:
  *         description: Server error
  */
-router.post("/login",loginValidator,login)
+router.post("/login", loginValidator, login);
 
-export default router
+export default router;

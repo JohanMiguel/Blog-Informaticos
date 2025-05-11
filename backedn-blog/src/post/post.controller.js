@@ -2,7 +2,6 @@ import Post from "./post.model.js"
 import Course from "../course/course.model.js"
 import Comment from "../comment/comment.model.js"
 
-// para usar 
 export const getAllPosts = async (req, res) => {
     try {
         const posts = await Post.find({ status: { $ne: false } })
@@ -41,7 +40,7 @@ export const getAllPosts = async (req, res) => {
         });
     }
 };
-// para usar
+
 export const getPostById = async (req, res) => {
     try {
         const { post_id } = req.params;
@@ -90,7 +89,7 @@ export const getPostById = async (req, res) => {
         });
     }
 };
-// para usar
+
 export const publicarPost = async (req, res) => {
     try {
         const uid = req.user?.id || req.usuario?._id;
@@ -138,7 +137,6 @@ export const publicarPost = async (req, res) => {
     }
 };
 
-// para usar
 export const filterPosts = async (req, res) => {
     try {
         const { course, dateRange } = req.query;
@@ -209,6 +207,7 @@ export const filterPosts = async (req, res) => {
         });
     }
 };
+
 export const updatePost = async (req, res) => {
     try {
         const { post_id } = req.params;
