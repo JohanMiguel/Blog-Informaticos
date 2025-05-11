@@ -25,7 +25,7 @@ const router = Router();
  *       500:
  *         description: Server error
  */
-router.get("/buscarCourse/:name", getCourseByName);
+router.get("/coursesfiltro/:name", getCourseByName);
 
 /**
  * @swagger

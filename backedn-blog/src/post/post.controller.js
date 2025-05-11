@@ -5,11 +5,12 @@ import Comment from "../comment/comment.model.js"
 // para usar 
 export const getAllPosts = async (req, res) => {
     try {
-        const posts = await Post.find({ status: { $ne: false } }) 
-            .select("title content course user createdAt") 
-            .populate("course", "name") 
-            .populate("user", "name") 
-            .lean(); 
+        const posts = await Post.find({ status: { $ne: false } })
+            .sort({ createdAt: -1 }) // Ordenar por fecha de creación descendente
+            .select("title content course user createdAt")
+            .populate("course", "name")
+            .populate("user", "name")
+            .lean();
 
         if (!posts || posts.length === 0) {
             return res.status(404).json({

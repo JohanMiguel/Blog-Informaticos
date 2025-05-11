@@ -1,5 +1,6 @@
 import Course from "./course.model.js";
 import User from "../user/user.model.js";
+import Post from "../post/post.model.js";
 
 const defectCourse = async () => {
     try {
@@ -65,15 +66,20 @@ export const getCourseByName = async (req, res) => {
                 message: "Curso no encontrado",
             });
         }
+        const posts = await Post.find({ course: course._id, status: { $ne: false } })
+            .select("title content user createdAt")
+            .populate("user", "name")
+            .lean();
 
         res.status(200).json({
             success: true,
             course,
+            posts,
         });
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error al buscar el curso",
+            message: "Error al buscar el curso y sus publicaciones",
             error: error.message,
         });
     }
