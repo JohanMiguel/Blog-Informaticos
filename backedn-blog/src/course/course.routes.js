@@ -2,9 +2,6 @@ import { Router } from "express";
 import {getCourseByName, getCourses} from "./course.controller.js";
 const router = Router();
 
-
-
-
 /**
  * @swagger
  * /courses/buscarCourse/{name}:

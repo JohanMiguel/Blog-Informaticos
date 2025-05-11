@@ -56,33 +56,35 @@ export const getCourses = async (req, res) => {
 };
 
 export const getCourseByName = async (req, res) => {
-    try {
-        const { name } = req.params;
-        const course = await Course.findOne({ name: new RegExp(`^${name}$`, "i") });
+  try {
+    const { name } = req.params;
+    const course = await Course.findOne({ name: new RegExp(`^${name}$`, "i") });
 
-        if (!course) {
-            return res.status(404).json({
-                success: false,
-                message: "Curso no encontrado",
-            });
-        }
-        const posts = await Post.find({ course: course._id, status: { $ne: false } })
-            .select("title content user createdAt")
-            .populate("user", "name")
-            .lean();
-
-        res.status(200).json({
-            success: true,
-            course,
-            posts,
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error al buscar el curso y sus publicaciones",
-            error: error.message,
-        });
+    if (!course) {
+      return res.status(404).json({
+        success: false,
+        message: "Curso no encontrado",
+      });
     }
+
+    const posts = await Post.find({ course: course._id, status: { $ne: false } })
+      .select("title content user createdAt course") 
+      .populate("user", "name")
+      .populate("course", "name") 
+      .lean();
+
+    res.status(200).json({
+      success: true,
+      posts,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error al buscar el curso y sus publicaciones",
+      error: error.message,
+    });
+  }
 };
+
 
 export { defectCourse };

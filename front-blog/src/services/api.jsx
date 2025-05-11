@@ -18,7 +18,7 @@ export const getAllPosts = async () => {
 // renderizar la publicación y sus comentarios
 export const getPostById = async (postId) => {
   try {
-    const response = await apiClient.get(`post/buscar/${postId}`);
+    const response = await apiClient.get(`/post/buscar/${postId}`);
     return response.data.post;
   } catch (e) {
     return { error: true, message: e.message };
@@ -34,18 +34,11 @@ export const addComment = async (commentData) => {
   }
 };
 
-export const filterPosts = async (filters) => {
+
+export const getPostsByCourseName = async (courseName) => {
   try {
-    const queryParams = new URLSearchParams(filters).toString();
-    const response = await apiClient.get(`/filter?${queryParams}`);
-    return response.data;
-  } catch (e) {
-    return { error: true, message: e.message };
-  }
-};export const getCourses = async () => {
-  try {
-    const response = await apiClient.get("/course/buscarCourse/");
-    return response.data;
+    const response = await apiClient.get(`/course/coursesfiltro/${courseName}`);
+    return response.data; 
   } catch (e) {
     return { error: true, message: e.message };
   }
