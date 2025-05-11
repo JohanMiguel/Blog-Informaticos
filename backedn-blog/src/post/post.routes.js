@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { publicarPost, updatePost, deletePost, getAllPosts, getPostById} from "./post.controller.js";
+import { publicarPost, updatePost, deletePost, getAllPosts, getPostById, filterPosts} from "./post.controller.js";
 import { createPostValidator, updatePostValidator, deletePostValidator } from "../middlewares/post-validator.js";
 
 const router = Router();
@@ -80,5 +80,5 @@ router.put("/updatePost/:uid", updatePostValidator, updatePost);
 router.delete("/deletePost/:uid", deletePostValidator, deletePost);
 router.get("/", getAllPosts);
 router.get("/buscar/:post_id", getPostById);
-
+router.get("/filter", filterPosts);
 export default router;

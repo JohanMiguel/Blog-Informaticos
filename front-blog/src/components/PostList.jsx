@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import { usePost } from "../../shared/hooks/usePost";
+import { useNavigate } from "react-router-dom";
+import { usePost } from "../shared/hooks/usePost";
 
 export const PostList = () => {
   const { posts, loading, error, fetchAllPosts } = usePost();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAllPosts();
@@ -23,9 +25,13 @@ export const PostList = () => {
           )}&background=000000&color=ffffff&size=64`;
 
           return (
-            <div key={post.id} className="col-md-4 mb-4">
+            <div
+              key={post.id} 
+              className="col-md-4 mb-4"
+              onClick={() => navigate(`buscar/${post.id}`)} 
+              style={{ cursor: "pointer" }}
+            >
               <div className="card shadow-sm h-100">
-                {/* Header con avatar y usuario */}
                 <div className="card-header d-flex align-items-center">
                   <img
                     src={avatarUrl}
@@ -38,14 +44,10 @@ export const PostList = () => {
                     <small className="text-muted">@{username.toLowerCase()}</small>
                   </div>
                 </div>
-
-                {/* Contenido del post */}
                 <div className="card-body">
                   <h6 className="card-subtitle mb-2 text-primary">{post.title}</h6>
                   <p className="card-text">{post.content}</p>
                 </div>
-
-                {/* Footer con fecha y curso */}
                 <div className="card-footer d-flex justify-content-between align-items-center">
                   <small className="text-muted">
                     {new Date(post.createdAt).toLocaleString()}

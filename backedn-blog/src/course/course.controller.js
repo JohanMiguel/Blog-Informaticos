@@ -32,33 +32,24 @@ const defectCourse = async () => {
 
 export const getCourses = async (req, res) => {
     const { limite = 10, desde = 0 } = req.query;
-    const query = { status: { $ne: false } };
+    const query = { status: { $ne: false } }; 
 
     try {
         const courses = await Course.find(query)
             .skip(Number(desde))
             .limit(Number(limite))
-            
-            .lean(); 
-
-        const coursesWithUserNames = await Promise.all(courses.map(async (course) => {
-            
-
-            return {
-                _id: course._id,
-                name: course.name,
-            };
-        }));
+            .select("name")
+            .lean();
 
         res.status(200).json({
             success: true,
-            courses: coursesWithUserNames
+            courses,
         });
     } catch (error) {
         res.status(500).json({
             success: false,
             message: "Error al obtener los cursos",
-            error: error.message
+            error: error.message,
         });
     }
 };
