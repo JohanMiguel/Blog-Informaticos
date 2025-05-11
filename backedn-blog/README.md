@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # 📚 API de Publicaciones - Estudiantes de INFORMÁTICA
 
 Esta API permite a los usuarios ver, crear y gestionar publicaciones realizadas por estudiantes de la carrera de INFORMÁTICA. Incluye autenticación, administración de cursos, publicaciones y comentarios.
